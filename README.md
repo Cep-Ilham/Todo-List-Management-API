@@ -1,39 +1,41 @@
 # Todo List Management API
 
-RESTful API untuk mengelola daftar tugas (*Todo*), kategori, autentikasi pengguna, riwayat aktivitas, dan statistik. Project ini dikembangkan menggunakan **Node.js, Express.js, dan MongoDB**.
+**Node.js** • **Express.js** • **MongoDB** • **Mongoose** • **JWT** • **Jest**
+
+> RESTful API untuk mengelola daftar tugas (*Todo*), kategori, autentikasi pengguna, riwayat aktivitas, dan statistik. Project ini dikembangkan menggunakan **Node.js, Express.js, dan MongoDB**.
 
 ---
 
 ## Fitur Utama
 
 | Fitur | Deskripsi |
-|---|---|
-| Authentication | Registrasi, login, JWT, dan profil pengguna |
-| Role Authorization | Pembatasan akses berdasarkan role admin |
-| Todo Management | CRUD tugas, status, prioritas, dan kategori |
-| Category Management | CRUD kategori tugas |
-| Filtering & Search | Filter, pencarian, sorting, dan pagination |
-| Activity Log | Melihat riwayat aktivitas pengguna |
-| Statistics | Menampilkan ringkasan statistik menggunakan API Key |
-| API Documentation | Dokumentasi endpoint menggunakan Swagger UI |
+|:---|:---|
+| **Authentication** | Registrasi, login, JWT, dan profil pengguna |
+| **Role Authorization** | Pembatasan akses berdasarkan role admin |
+| **Todo Management** | CRUD tugas, status, prioritas, dan kategori |
+| **Category Management** | CRUD kategori tugas |
+| **Filtering & Search** | Filter, pencarian, sorting, dan pagination |
+| **Activity Log** | Melihat riwayat aktivitas pengguna |
+| **Statistics** | Menampilkan ringkasan statistik menggunakan API Key |
+| **API Documentation** | Dokumentasi endpoint menggunakan Swagger UI |
 
 ## Teknologi
 
 | Teknologi | Kegunaan |
-|---|---|
-| Node.js | JavaScript runtime |
-| Express.js 5 | Framework backend |
-| MongoDB | Database NoSQL |
-| Mongoose | ODM untuk MongoDB |
-| JSON Web Token | Autentikasi pengguna |
-| bcryptjs | Password hashing |
-| express-validator | Validasi input |
-| Swagger UI | Dokumentasi API |
-| dotenv | Pengelolaan environment variable |
-| Jest | Automated testing |
-| Supertest | HTTP endpoint testing |
-| mongodb-memory-server | Database sementara untuk testing |
-| Nodemon | Development server |
+|:---|:---|
+| **Node.js** | JavaScript runtime |
+| **Express.js 5** | Framework backend |
+| **MongoDB** | Database NoSQL |
+| **Mongoose** | ODM untuk MongoDB |
+| **JSON Web Token** | Autentikasi pengguna |
+| **bcryptjs** | Password hashing |
+| **express-validator** | Validasi input |
+| **Swagger UI** | Dokumentasi API |
+| **dotenv** | Pengelolaan environment variable |
+| **Jest** | Automated testing |
+| **Supertest** | HTTP endpoint testing |
+| **mongodb-memory-server** | Database sementara untuk testing |
+| **Nodemon** | Development server |
 
 ---
 
@@ -81,13 +83,14 @@ API_KEY=your_api_key
 ### Environment Variables
 
 | Variable | Deskripsi |
-|---|---|
+|:---|:---|
 | `PORT` | Port server |
 | `MONGODB_URI` | Connection string MongoDB |
 | `JWT_SECRET` | Secret untuk JWT |
 | `JWT_EXPIRES_IN` | Masa berlaku token |
 | `API_KEY` | API Key untuk endpoint statistik |
 
+> [!NOTE]
 > **Keamanan:** Jangan membagikan file `.env`, JWT Secret, API Key, atau connection string database. File `.env` sudah dikecualikan melalui `.gitignore`.
 
 ---
@@ -133,23 +136,23 @@ http://localhost:3000
 Base path: `/api/auth`
 
 | Method | Endpoint | Deskripsi | Akses |
-|---|---|---|---|
-| POST | `/api/auth/register` | Registrasi pengguna | Public |
-| POST | `/api/auth/login` | Login pengguna | Public |
-| GET | `/api/auth/me` | Melihat profil pengguna | JWT |
-| GET | `/api/auth/admin-only` | Endpoint khusus admin | Admin |
+|:---:|:---|:---|:---:|
+| 🔵 **POST** | `/api/auth/register` | Registrasi pengguna | **Public** |
+| 🔵 **POST** | `/api/auth/login` | Login pengguna | **Public** |
+| 🟢 **GET** | `/api/auth/me` | Melihat profil pengguna | **JWT** |
+| 🟢 **GET** | `/api/auth/admin-only` | Endpoint khusus admin | **Admin** |
 
 ### 2. Todo Management
 
 Base path: `/api/todos`
 
 | Method | Endpoint | Deskripsi | Akses |
-|---|---|---|---|
-| POST | `/api/todos` | Membuat Todo | JWT |
-| GET | `/api/todos` | Mendapatkan daftar Todo | JWT |
-| GET | `/api/todos/:id` | Mendapatkan detail Todo | JWT |
-| PATCH | `/api/todos/:id` | Memperbarui Todo | JWT |
-| DELETE | `/api/todos/:id` | Menghapus Todo | JWT |
+|:---:|:---|:---|:---:|
+| 🔵 **POST** | `/api/todos` | Membuat Todo | **JWT** |
+| 🟢 **GET** | `/api/todos` | Mendapatkan daftar Todo | **JWT** |
+| 🟢 **GET** | `/api/todos/:id` | Mendapatkan detail Todo | **JWT** |
+| 🟠 **PATCH** | `/api/todos/:id` | Memperbarui Todo | **JWT** |
+| 🔴 **DELETE** | `/api/todos/:id` | Menghapus Todo | **JWT** |
 
 **Fitur tambahan Todo:**
 
@@ -175,12 +178,12 @@ Base path: `/api/todos`
 Base path: `/api/categories`
 
 | Method | Endpoint | Deskripsi | Akses |
-|---|---|---|---|
-| POST | `/api/categories` | Membuat kategori | JWT |
-| GET | `/api/categories` | Mendapatkan daftar kategori | JWT |
-| GET | `/api/categories/:id` | Mendapatkan detail kategori | JWT |
-| PATCH | `/api/categories/:id` | Memperbarui kategori | JWT |
-| DELETE | `/api/categories/:id` | Menghapus kategori | JWT |
+|:---:|:---|:---|:---:|
+| 🔵 **POST** | `/api/categories` | Membuat kategori | **JWT** |
+| 🟢 **GET** | `/api/categories` | Mendapatkan daftar kategori | **JWT** |
+| 🟢 **GET** | `/api/categories/:id` | Mendapatkan detail kategori | **JWT** |
+| 🟠 **PATCH** | `/api/categories/:id` | Memperbarui kategori | **JWT** |
+| 🔴 **DELETE** | `/api/categories/:id` | Menghapus kategori | **JWT** |
 
 Fitur tambahan:
 
@@ -193,16 +196,16 @@ Fitur tambahan:
 Base path: `/api/activity-logs`
 
 | Method | Endpoint | Deskripsi | Akses |
-|---|---|---|---|
-| GET | `/api/activity-logs` | Melihat riwayat aktivitas pengguna | JWT |
+|:---:|:---|:---|:---:|
+| 🟢 **GET** | `/api/activity-logs` | Melihat riwayat aktivitas pengguna | **JWT** |
 
 ### 5. Statistics
 
 Base path: `/api/stats`
 
 | Method | Endpoint | Deskripsi | Akses |
-|---|---|---|---|
-| GET | `/api/stats/summary` | Mendapatkan ringkasan statistik Todo | API Key |
+|:---:|:---|:---|:---:|
+| 🟢 **GET** | `/api/stats/summary` | Mendapatkan ringkasan statistik Todo | **API Key** |
 
 Endpoint statistik menggunakan header:
 
