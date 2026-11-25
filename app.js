@@ -23,6 +23,14 @@ app.use('/api/categories', categoryRoutes);
 app.use('/api/activity-logs', activityLogRoutes);
 app.use('/api/stats', statsRoutes);
 
+app.get('/', (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: 'API Todo List Management berhasil berjalan!',
+        version: '1.0.0'
+    });
+});
+
 // HANDLE UNKNOWN ROUTES
 app.use((req, res, next) => {
   next(new AppError(`Route ${req.originalUrl} tidak ditemukan`, 404));
