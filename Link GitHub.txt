@@ -1,6 +1,0 @@
-LINK GITHUB PROJECT
-
-Nama Project: Todo List Management API
-
-Repository:
-https://github.com/Cep-Ilham/Todo-List-Management-API
